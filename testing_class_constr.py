@@ -1,22 +1,15 @@
 class Mudrost():
-    def __init__(self, index, content,mark):
+    def __init__(self, index, content):
         self.index=index
         self.content=content
-        self.mark=mark
 
 class Quot(Mudrost):
-    def __init__(self, index, content, mark, name):
-        Mudrost.__init__(self, index, content,mark)
+    def __init__(self, index, content, name):
+        Mudrost.__init__(self, index, content)
         self.name=name
 
 
 class Aforizm(Mudrost):
-    def __init__(self, index, content,mark, country):
-        Mudrost.__init__(self, index, content,mark)
-        self.country = country
-
-
-class riddle(Mudrost):
-    def __init__(self, index, content, answer):
+    def __init__(self, index, content, country):
         Mudrost.__init__(self, index, content)
-        self.answer=answer
+        self.country = country
