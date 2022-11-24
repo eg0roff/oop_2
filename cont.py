@@ -13,27 +13,17 @@ class cont():
                     if part[0] == '0':
                         self.container[i] = testing_class_constr.Aforizm(part[0], part[2], part[1])
 
-                        #print(self.container[i].country)
+                        print(self.container[i].country)
                         i += 1
 
                     elif part[0] == '1':
 
                         self.container[i] = testing_class_constr.Quot(part[0], part[2], part[1])
 
-                        #print(self.container[i].name)
+                        print(self.container[i].name)
                         i += 1
-
-                    elif part[0] == '2':
-
-                        self.container[i] = testing_class_constr.riddle(part[0], part[2], part[1])
-
-                        #print(self.container[i].answer)
-                        i += 1
-
-
 
                 fout.write('Контейнер заполнен')
-
 
     def out(self):
         type = ''
@@ -52,13 +42,9 @@ class cont():
                     # shape in
                     # type=shape_in.determine_shape(container,j)
                     if self.container[j].index == '0':
-                        fout.write(f'\n{j}: Это афоризм: {self.container[j].country} - {self.container[j].content}')
+                        fout.write(f'\n{j}: Это {self.container[j].index}: {self.container[j].country} - {self.container[j].content}')
                     elif self.container[j].index == '1':
-                        fout.write(f'\n{j}: Это цитата: {self.container[j].name} - {self.container[j].content}')
-                    elif self.container[j].index == '2':
-                        fout.write(f'\n{j}: Это загадка: {self.container[j].content} - {self.container[j].answer}')
-
-
+                        fout.write(f'\n{j}: Это {self.container[j].index}: {self.container[j].name} - {self.container[j].content}')
 
             elif razmernost == 0:
                 fout.write(f'\nКонтейнер содержит {razmernost} элементов:')
@@ -66,25 +52,3 @@ class cont():
 
     def clear(self):
         self.container=[]
-
-    def mark_count(self):
-        razmernost = 0
-        for i in range(len(self.container)):
-            if self.container[i] == "":
-                with open("out.txt", "a", encoding='utf-8') as fout:
-                    fout.write(f'\nКонтейнер содержит {i} элементов:')
-                    razmernost = i
-                break
-        mark_example='",.;:!?)(\/'
-
-        with open("out.txt", "a", encoding='utf-8') as fout:
-            for i in range(0, razmernost):
-                punc_count = 0
-                for mark in mark_example:
-                    str = self.container[i].content
-                    for j in range(len(str)):
-                        if str[j].find(mark) != -1:
-                            punc_count += 1
-
-                fout.write(f'\nВ строке {i}, содержится {punc_count} знаков препинания')
-
